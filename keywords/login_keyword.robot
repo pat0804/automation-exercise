@@ -4,7 +4,7 @@ Variables         ../variables/setting.py
 
 *** Keywords ***
 
-Login to website
+Open Automation Exercise Website
     IF  ${DEBUG_MODE}
         Open Browser       url=${BASE_URL}      browser=${BROWSER}    options=add_experimental_option("detach", True);add_experimental_option("excludeSwitches", ["enable-logging"])
     ELSE

@@ -1,8 +1,17 @@
 *** Settings ***
 Library           SeleniumLibrary
-Library           ../../custom_library/custom_keywords.py
+Library           String
+# Library           ../custom_library/custom_keywords.py
 
-Variables         ../../variables/setting.py
-Resource          ../../shared_keywords/register_opd_keywords.robot
+Variables         ../variables/setting.py
+Resource          ../keywords/login_keyword.robot
+Resource          ../keywords/register_keyword.robot
 
-*** Test case ***
+# Suite Teardown    Close All Browsers
+# Test Teardown     Close Browser
+
+*** Test Cases ***
+Register User
+    Open Automation Exercise Website
+    Register New User          firstName=TS
+    

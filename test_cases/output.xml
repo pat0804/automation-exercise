@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.0.1 (Python 3.12.4 on darwin)" generated="2025-05-08T14:30:24.306284" rpa="false" schemaversion="5">
+<suite id="s1" name="Test" source="/Users/admin/pat_project/automation-exercise/test_cases/test.robot">
+<test id="s1-t1" name="Register User" line="9">
+<kw name="Login to website" owner="login_keyword">
+<if>
+<branch type="IF" condition="${DEBUG_MODE}">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-05-08T14:30:24.401404" level="INFO">Opening browser 'chrome' to base url 'https://automationexercise.com'.</msg>
+<arg>url=${BASE_URL}</arg>
+<arg>browser=${BROWSER}</arg>
+<arg>options=add_experimental_option("detach", True);add_experimental_option("excludeSwitches", ["enable-logging"])</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-05-08T14:30:24.401252" elapsed="4.152965"/>
+</kw>
+<status status="PASS" start="2025-05-08T14:30:24.401000" elapsed="4.154138"/>
+</branch>
+<branch type="ELSE">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<arg>url=${BASE_URL}</arg>
+<arg>browser=${BROWSER}</arg>
+<arg>options=add_argument("--headless=new");add_experimental_option("excludeSwitches", ["enable-logging"])</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="NOT RUN" start="2025-05-08T14:30:28.556468" elapsed="0.000043"/>
+</kw>
+<status status="NOT RUN" start="2025-05-08T14:30:28.555485" elapsed="0.001058"/>
+</branch>
+<status status="PASS" start="2025-05-08T14:30:24.400985" elapsed="4.155576"/>
+</if>
+<status status="PASS" start="2025-05-08T14:30:24.400866" elapsed="4.155949"/>
+</kw>
+<status status="PASS" start="2025-05-08T14:30:24.400645" elapsed="4.156788"/>
+</test>
+<status status="PASS" start="2025-05-08T14:30:24.306791" elapsed="4.252268"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Test">Test</stat>
+</suite>
+</statistics>
+<errors>
+<msg time="2025-05-08T14:30:24.304679" level="WARN">Error in file '/Users/admin/pat_project/automation-exercise/test_cases/test.robot' on line 8: Singular section headers like '*** Test case ***' are deprecated. Use plural format like '*** Test Cases ***' instead.</msg>
+<msg time="2025-05-08T14:30:24.398813" level="ERROR">Error in file '/Users/admin/pat_project/automation-exercise/test_cases/test.robot' on line 3: Library '../../custom_library/custom_keywords.py' does not exist.</msg>
+</errors>
+</robot>
