@@ -13,5 +13,5 @@ Resource          ../keywords/register_keyword.robot
 *** Test Cases ***
 Register User
     Open Automation Exercise Website
-    Register New User          firstName=TS
+    Register New User          firstName=TS    gender=Mrs    password=1234567
     
