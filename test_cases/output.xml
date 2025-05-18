@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.0.1 (Python 3.12.4 on darwin)" generated="2025-05-09T14:45:33.303604" rpa="false" schemaversion="5">
+<robot generator="Robot 7.0.1 (Python 3.12.4 on darwin)" generated="2025-05-18T19:13:34.520267" rpa="false" schemaversion="5">
 <suite id="s1" name="1.Register User" source="/Users/admin/pat_project/automation-exercise/test_cases/1.register_user.robot">
 <test id="s1-t1" name="Register User" line="14">
 <kw name="Open Automation Exercise Website" owner="login_keyword">
 <if>
 <branch type="IF" condition="${DEBUG_MODE}">
 <kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2025-05-09T14:45:33.403430" level="INFO">Opening browser 'chrome' to base url 'https://automationexercise.com'.</msg>
+<msg time="2025-05-18T19:13:34.619950" level="INFO">Opening browser 'chrome' to base url 'https://automationexercise.com'.</msg>
 <arg>url=${BASE_URL}</arg>
 <arg>browser=${BROWSER}</arg>
 <arg>options=add_experimental_option("detach", True);add_experimental_option("excludeSwitches", ["enable-logging"])</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2025-05-09T14:45:33.403303" elapsed="13.374561"/>
+<status status="PASS" start="2025-05-18T19:13:34.619830" elapsed="2.421137"/>
 </kw>
-<status status="PASS" start="2025-05-09T14:45:33.403036" elapsed="13.374990"/>
+<status status="PASS" start="2025-05-18T19:13:34.619574" elapsed="2.423278"/>
 </branch>
 <branch type="ELSE">
 <kw name="Open Browser" owner="SeleniumLibrary">
@@ -21,274 +21,307 @@
 <arg>browser=${BROWSER}</arg>
 <arg>options=add_argument("--headless=new");add_experimental_option("excludeSwitches", ["enable-logging"])</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="NOT RUN" start="2025-05-09T14:45:46.778289" elapsed="0.000024"/>
+<status status="NOT RUN" start="2025-05-18T19:13:37.044211" elapsed="0.000113"/>
 </kw>
-<status status="NOT RUN" start="2025-05-09T14:45:46.778072" elapsed="0.000272"/>
+<status status="NOT RUN" start="2025-05-18T19:13:37.043367" elapsed="0.001039"/>
 </branch>
-<status status="PASS" start="2025-05-09T14:45:33.403024" elapsed="13.375338"/>
+<status status="PASS" start="2025-05-18T19:13:34.619562" elapsed="2.425011"/>
 </if>
-<status status="PASS" start="2025-05-09T14:45:33.402850" elapsed="13.375574"/>
+<status status="PASS" start="2025-05-18T19:13:34.619447" elapsed="2.425500"/>
+</kw>
+<kw name="Generate Random Date" owner="custom_keywords">
+<msg time="2025-05-18T19:13:37.067134" level="INFO">${days} = 21</msg>
+<msg time="2025-05-18T19:13:37.067177" level="INFO">${months} = 1</msg>
+<msg time="2025-05-18T19:13:37.067197" level="INFO">${years} = 1962</msg>
+<var>${days}</var>
+<var>${months}</var>
+<var>${years}</var>
+<doc>Generate a random date and return day, month, year as separate variables.</doc>
+<status status="PASS" start="2025-05-18T19:13:37.066105" elapsed="0.001104"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-05-18T19:13:37.067589" level="INFO">${date_of_birth} = 21-1-1962</msg>
+<var>${date_of_birth}</var>
+<arg>${days}-${months}-${years}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-05-18T19:13:37.067412" elapsed="0.000191"/>
 </kw>
 <kw name="Register New User" owner="register_keyword">
 <kw name="Go to Signup / Login Menu" owner="menu_keyword">
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<msg time="2025-05-09T14:45:46.781127" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: Message: no such window: target window already closed
-from unknown error: web view not found
-  (Session info: chrome=136.0.7103.93)
-Stacktrace:
-0   chromedriver                        0x0000000100c143bc cxxbridge1$str$ptr + 2829900
-1   chromedriver                        0x0000000100c0c684 cxxbridge1$str$ptr + 2797844
-2   chromedriver                        0x0000000100749fbc cxxbridge1$string$len + 90140
-3   chromedriver                        0x0000000100724798 chromedriver + 133016
-4   chromedriver                        0x00000001007b9048 cxxbridge1$string$len + 544936
-5   chromedriver                        0x00000001007d1b50 cxxbridge1$string$len + 646064
-6   chromedriver                        0x00000001007853f8 cxxbridge1$string$len + 332888
-7   chromedriver                        0x0000000100bd87e0 cxxbridge1$str$ptr + 2585200
-8   chromedriver                        0x0000000100bdbab0 cxxbridge1$str$ptr + 2598208
-9   chromedriver                        0x0000000100bb9db4 cxxbridge1$str$ptr + 2459716
-10  chromedriver                        0x0000000100bdc328 cxxbridge1$str$ptr + 2600376
-11  chromedriver                        0x0000000100bab640 cxxbridge1$str$ptr + 2400464
-12  chromedriver                        0x0000000100bfc28c cxxbridge1$str$ptr + 2731292
-13  chromedriver                        0x0000000100bfc418 cxxbridge1$str$ptr + 2731688
-14  chromedriver                        0x0000000100c0c2d0 cxxbridge1$str$ptr + 2796896
-15  libsystem_pthread.dylib             0x0000000199b21c0c _pthread_start + 136
-16  libsystem_pthread.dylib             0x0000000199b1cb80 thread_start + 8
-</msg>
-<msg time="2025-05-09T14:45:46.781316" level="FAIL">NoSuchWindowException: Message: no such window: target window already closed
-from unknown error: web view not found
-  (Session info: chrome=136.0.7103.93)
-Stacktrace:
-0   chromedriver                        0x0000000100c143bc cxxbridge1$str$ptr + 2829900
-1   chromedriver                        0x0000000100c0c684 cxxbridge1$str$ptr + 2797844
-2   chromedriver                        0x0000000100749fbc cxxbridge1$string$len + 90140
-3   chromedriver                        0x0000000100724798 chromedriver + 133016
-4   chromedriver                        0x00000001007b9048 cxxbridge1$string$len + 544936
-5   chromedriver                        0x00000001007d1b50 cxxbridge1$string$len + 646064
-6   chromedriver                        0x00000001007853f8 cxxbridge1$string$len + 332888
-7   chromedriver                        0x0000000100bd87e0 cxxbridge1$str$ptr + 2585200
-8   chromedriver                        0x0000000100bdbab0 cxxbridge1$str$ptr + 2598208
-9   chromedriver                        0x0000000100bb9db4 cxxbridge1$str$ptr + 2459716
-10  chromedriver                        0x0000000100bdc328 cxxbridge1$str$ptr + 2600376
-11  chromedriver                        0x0000000100bab640 cxxbridge1$str$ptr + 2400464
-12  chromedriver                        0x0000000100bfc28c cxxbridge1$str$ptr + 2731292
-13  chromedriver                        0x0000000100bfc418 cxxbridge1$str$ptr + 2731688
-14  chromedriver                        0x0000000100c0c2d0 cxxbridge1$str$ptr + 2796896
-15  libsystem_pthread.dylib             0x0000000199b21c0c _pthread_start + 136
-16  libsystem_pthread.dylib             0x0000000199b1cb80 thread_start + 8
-</msg>
 <arg>xpath://a[contains(., "Signup / Login")]</arg>
 <arg>10s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="FAIL" start="2025-05-09T14:45:46.779205" elapsed="0.005477">NoSuchWindowException: Message: no such window: target window already closed
-from unknown error: web view not found
-  (Session info: chrome=136.0.7103.93)
-Stacktrace:
-0   chromedriver                        0x0000000100c143bc cxxbridge1$str$ptr + 2829900
-1   chromedriver                        0x0000000100c0c684 cxxbridge1$str$ptr + 2797844
-2   chromedriver                        0x0000000100749fbc cxxbridge1$string$len + 90140
-3   chromedriver                        0x0000000100724798 chromedriver + 133016
-4   chromedriver                        0x00000001007b9048 cxxbridge1$string$len + 544936
-5   chromedriver                        0x00000001007d1b50 cxxbridge1$string$len + 646064
-6   chromedriver                        0x00000001007853f8 cxxbridge1$string$len + 332888
-7   chromedriver                        0x0000000100bd87e0 cxxbridge1$str$ptr + 2585200
-8   chromedriver                        0x0000000100bdbab0 cxxbridge1$str$ptr + 2598208
-9   chromedriver                        0x0000000100bb9db4 cxxbridge1$str$ptr + 2459716
-10  chromedriver                        0x0000000100bdc328 cxxbridge1$str$ptr + 2600376
-11  chromedriver                        0x0000000100bab640 cxxbridge1$str$ptr + 2400464
-12  chromedriver                        0x0000000100bfc28c cxxbridge1$str$ptr + 2731292
-13  chromedriver                        0x0000000100bfc418 cxxbridge1$str$ptr + 2731688
-14  chromedriver                        0x0000000100c0c2d0 cxxbridge1$str$ptr + 2796896
-15  libsystem_pthread.dylib             0x0000000199b21c0c _pthread_start + 136
-16  libsystem_pthread.dylib             0x0000000199b1cb80 thread_start + 8
-</status>
+<status status="PASS" start="2025-05-18T19:13:37.069393" elapsed="2.009066"/>
 </kw>
 <kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-05-18T19:13:39.078767" level="INFO">Clicking element 'xpath://a[contains(., "Signup / Login")]'.</msg>
 <arg>xpath://a[contains(., "Signup / Login")]</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="NOT RUN" start="2025-05-09T14:45:46.784806" elapsed="0.000017"/>
+<status status="PASS" start="2025-05-18T19:13:39.078603" elapsed="0.744109"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>xpath://h2[contains(text(), "Login to your account")]</arg>
 <arg>10s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="NOT RUN" start="2025-05-09T14:45:46.784898" elapsed="0.000018"/>
+<status status="PASS" start="2025-05-18T19:13:39.822967" elapsed="0.016647"/>
 </kw>
 <kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2025-05-18T19:13:39.848790" level="INFO">Element 'xpath://h2[contains(text(), "Login to your account")]' is displayed.</msg>
 <arg>xpath://h2[contains(text(), "Login to your account")]</arg>
 <doc>Verifies that the element identified by ``locator`` is visible.</doc>
-<status status="NOT RUN" start="2025-05-09T14:45:46.785008" elapsed="0.000021"/>
+<status status="PASS" start="2025-05-18T19:13:39.839868" elapsed="0.008977"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>xpath://h2[contains(text(), "New User Signup!")]</arg>
 <arg>10s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="NOT RUN" start="2025-05-09T14:45:46.785080" elapsed="0.000012"/>
+<status status="PASS" start="2025-05-18T19:13:39.848960" elapsed="0.009888"/>
 </kw>
 <kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2025-05-18T19:13:39.871435" level="INFO">Element 'xpath://h2[contains(text(), "New User Signup!")]' is displayed.</msg>
 <arg>xpath://h2[contains(text(), "New User Signup!")]</arg>
 <doc>Verifies that the element identified by ``locator`` is visible.</doc>
-<status status="NOT RUN" start="2025-05-09T14:45:46.785180" elapsed="0.000011"/>
+<status status="PASS" start="2025-05-18T19:13:39.858948" elapsed="0.012541"/>
 </kw>
-<status status="FAIL" start="2025-05-09T14:45:46.779080" elapsed="0.006200">NoSuchWindowException: Message: no such window: target window already closed
-from unknown error: web view not found
-  (Session info: chrome=136.0.7103.93)
-Stacktrace:
-0   chromedriver                        0x0000000100c143bc cxxbridge1$str$ptr + 2829900
-1   chromedriver                        0x0000000100c0c684 cxxbridge1$str$ptr + 2797844
-2   chromedriver                        0x0000000100749fbc cxxbridge1$string$len + 90140
-3   chromedriver                        0x0000000100724798 chromedriver + 133016
-4   chromedriver                        0x00000001007b9048 cxxbridge1$string$len + 544936
-5   chromedriver                        0x00000001007d1b50 cxxbridge1$string$len + 646064
-6   chromedriver                        0x00000001007853f8 cxxbridge1$string$len + 332888
-7   chromedriver                        0x0000000100bd87e0 cxxbridge1$str$ptr + 2585200
-8   chromedriver                        0x0000000100bdbab0 cxxbridge1$str$ptr + 2598208
-9   chromedriver                        0x0000000100bb9db4 cxxbridge1$str$ptr + 2459716
-10  chromedriver                        0x0000000100bdc328 cxxbridge1$str$ptr + 2600376
-11  chromedriver                        0x0000000100bab640 cxxbridge1$str$ptr + 2400464
-12  chromedriver                        0x0000000100bfc28c cxxbridge1$str$ptr + 2731292
-13  chromedriver                        0x0000000100bfc418 cxxbridge1$str$ptr + 2731688
-14  chromedriver                        0x0000000100c0c2d0 cxxbridge1$str$ptr + 2796896
-15  libsystem_pthread.dylib             0x0000000199b21c0c _pthread_start + 136
-16  libsystem_pthread.dylib             0x0000000199b1cb80 thread_start + 8
-</status>
+<status status="PASS" start="2025-05-18T19:13:37.069268" elapsed="2.802292"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>xpath://input[@data-qa="signup-name"]</arg>
 <arg>10s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="NOT RUN" start="2025-05-09T14:45:46.785338" elapsed="0.000010"/>
+<status status="PASS" start="2025-05-18T19:13:39.871645" elapsed="0.008209"/>
 </kw>
 <kw name="Fill In First Name And Email" owner="register_keyword">
+<kw name="Generate Random String" owner="String">
+<msg time="2025-05-18T19:13:39.880483" level="INFO">${rand} = vGznZp</msg>
+<var>${rand}</var>
+<arg>6</arg>
+<arg>[LETTERS]</arg>
+<doc>Generates a string with a desired ``length`` from the given ``chars``.</doc>
+<status status="PASS" start="2025-05-18T19:13:39.880274" elapsed="0.000223"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-05-18T19:13:39.880656" level="INFO">${firstName} = TS-vGznZp</msg>
+<var>${firstName}</var>
+<arg>${firstName}-${rand}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-05-18T19:13:39.880577" elapsed="0.000089"/>
+</kw>
+<kw name="Convert To Upper Case" owner="String">
+<msg time="2025-05-18T19:13:39.880774" level="INFO">${firstName} = TS-VGZNZP</msg>
+<var>${firstName}</var>
+<arg>${firstName}</arg>
+<doc>Converts string to upper case.</doc>
+<status status="PASS" start="2025-05-18T19:13:39.880712" elapsed="0.000072"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-05-18T19:13:39.886137" level="INFO">${email} = ts-vgznzp@example.com</msg>
+<var>${email}</var>
+<arg>${firstName.lower()}@example.com</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-05-18T19:13:39.880829" elapsed="0.005337"/>
+</kw>
+<kw name="Press Keys" owner="SeleniumLibrary">
+<msg time="2025-05-18T19:13:39.886941" level="INFO">Sending key(s) ('TS-VGZNZP',) to xpath://input[@data-qa="signup-name"] element.</msg>
+<msg time="2025-05-18T19:13:40.223180" level="INFO">Sending keys TS-VGZNZP</msg>
+<arg>xpath://input[@data-qa="signup-name"]</arg>
+<arg>${firstName}</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<status status="PASS" start="2025-05-18T19:13:39.886349" elapsed="0.441288"/>
+</kw>
+<kw name="Press Keys" owner="SeleniumLibrary">
+<msg time="2025-05-18T19:13:40.328107" level="INFO">Sending key(s) ('ts-vgznzp@example.com',) to xpath://input[@data-qa="signup-email"] element.</msg>
+<msg time="2025-05-18T19:13:40.609722" level="INFO">Sending keys ts-vgznzp@example.com</msg>
+<arg>xpath://input[@data-qa="signup-email"]</arg>
+<arg>${email}</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<status status="PASS" start="2025-05-18T19:13:40.327824" elapsed="0.308364"/>
+</kw>
+<return>
+<value>${email}</value>
+<status status="PASS" start="2025-05-18T19:13:40.636281" elapsed="0.000098"/>
+</return>
+<msg time="2025-05-18T19:13:40.636524" level="INFO">${randName} = ts-vgznzp@example.com</msg>
 <var>${randName}</var>
 <arg>${firstName}</arg>
-<status status="NOT RUN" start="2025-05-09T14:45:46.785438" elapsed="0.000013"/>
+<status status="PASS" start="2025-05-18T19:13:39.880079" elapsed="0.756464"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>xpath://*[@class="btn btn-default" and contains(text(), "Signup")]</arg>
 <arg>10s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="NOT RUN" start="2025-05-09T14:45:46.785491" elapsed="0.000008"/>
+<status status="PASS" start="2025-05-18T19:13:40.636653" elapsed="0.011320"/>
 </kw>
 <kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-05-18T19:13:40.648268" level="INFO">Clicking element 'xpath://*[@class="btn btn-default" and contains(text(), "Signup")]'.</msg>
 <arg>xpath://*[@class="btn btn-default" and contains(text(), "Signup")]</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="NOT RUN" start="2025-05-09T14:45:46.785537" elapsed="0.000008"/>
+<status status="PASS" start="2025-05-18T19:13:40.648095" elapsed="0.330955"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>xpath://h2[b[contains(text(), "Enter Account Information")]]</arg>
 <arg>10s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="NOT RUN" start="2025-05-09T14:45:46.785579" elapsed="0.000008"/>
+<status status="PASS" start="2025-05-18T19:13:40.979453" elapsed="0.611333"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>xpath://input[@value="Mr"]</arg>
 <arg>10s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="NOT RUN" start="2025-05-09T14:45:46.785622" elapsed="0.000007"/>
+<status status="PASS" start="2025-05-18T19:13:41.590935" elapsed="0.010020"/>
 </kw>
 <if>
 <branch type="IF" condition="'${gender}' != '${EMPTY}'">
 <kw name="Select in Gender" owner="register_keyword">
-<arg>${gender}</arg>
-<status status="NOT RUN" start="2025-05-09T14:45:46.786390" elapsed="0.000025"/>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath://input[@value="${gender}"]</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-05-18T19:13:41.602019" elapsed="0.010503"/>
 </kw>
-<status status="NOT RUN" start="2025-05-09T14:45:46.785678" elapsed="0.000761"/>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-05-18T19:13:41.612780" level="INFO">Clicking element 'xpath://input[@value="Mrs"]'.</msg>
+<arg>xpath://input[@value="${gender}"]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-05-18T19:13:41.612636" elapsed="0.040105"/>
+</kw>
+<arg>${gender}</arg>
+<status status="PASS" start="2025-05-18T19:13:41.601764" elapsed="0.051043"/>
+</kw>
+<status status="PASS" start="2025-05-18T19:13:41.601084" elapsed="0.051743"/>
 </branch>
-<status status="NOT RUN" start="2025-05-09T14:45:46.785656" elapsed="0.000802"/>
+<status status="PASS" start="2025-05-18T19:13:41.601061" elapsed="0.051788"/>
 </if>
 <if>
 <branch type="IF" condition="'${password}' != '${EMPTY}'">
 <kw name="Fill Password" owner="register_keyword">
-<arg>${password}</arg>
-<status status="NOT RUN" start="2025-05-09T14:45:46.786546" elapsed="0.000011"/>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>id:password</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-05-18T19:13:41.653321" elapsed="0.043545"/>
 </kw>
-<status status="NOT RUN" start="2025-05-09T14:45:46.786487" elapsed="0.000085"/>
+<kw name="Press Keys" owner="SeleniumLibrary">
+<msg time="2025-05-18T19:13:41.697232" level="INFO">Sending key(s) ('1234567',) to id:password element.</msg>
+<msg time="2025-05-18T19:13:41.969587" level="INFO">Sending keys 1234567</msg>
+<arg>id:password</arg>
+<arg>${password}</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<status status="PASS" start="2025-05-18T19:13:41.696988" elapsed="0.283738"/>
+</kw>
+<arg>${password}</arg>
+<status status="PASS" start="2025-05-18T19:13:41.653192" elapsed="0.327604"/>
+</kw>
+<status status="PASS" start="2025-05-18T19:13:41.652898" elapsed="0.327919"/>
 </branch>
-<status status="NOT RUN" start="2025-05-09T14:45:46.786480" elapsed="0.000104"/>
+<status status="PASS" start="2025-05-18T19:13:41.652889" elapsed="0.327949"/>
+</if>
+<if>
+<branch type="IF" condition="'${date_of_birth}' != '${EMPTY}'">
+<kw name="Fill Birthdate" owner="register_keyword">
+<kw name="Split String" owner="String">
+<msg time="2025-05-18T19:13:41.981404" level="INFO">${days} = 21</msg>
+<msg time="2025-05-18T19:13:41.981420" level="INFO">${months} = 1</msg>
+<msg time="2025-05-18T19:13:41.981432" level="INFO">${years} = 1962</msg>
+<var>${days}</var>
+<var>${months}</var>
+<var>${years}</var>
+<arg>${date_of_birth}</arg>
+<arg>-</arg>
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<status status="PASS" start="2025-05-18T19:13:41.981322" elapsed="0.000118"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>css:#days</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-05-18T19:13:41.981494" elapsed="0.007199"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-05-18T19:13:41.988854" level="INFO">Clicking element 'css:#days'.</msg>
+<arg>css:#days</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-05-18T19:13:41.988781" elapsed="0.114872"/>
+</kw>
+<kw name="Select From List By Value" owner="SeleniumLibrary">
+<msg time="2025-05-18T19:13:42.103913" level="INFO">Selecting options from selection list 'css:#days' by value 21.</msg>
+<arg>css:#days</arg>
+<arg>${days}</arg>
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<status status="PASS" start="2025-05-18T19:13:42.103771" elapsed="0.036343"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>css:#months</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-05-18T19:13:42.140241" elapsed="0.026857"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-05-18T19:13:42.167310" level="INFO">Clicking element 'css:#months'.</msg>
+<arg>css:#months</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-05-18T19:13:42.167209" elapsed="0.033994"/>
+</kw>
+<kw name="Select From List By Value" owner="SeleniumLibrary">
+<msg time="2025-05-18T19:13:42.201504" level="INFO">Selecting options from selection list 'css:#months' by value 1.</msg>
+<arg>css:#months</arg>
+<arg>${months}</arg>
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<status status="PASS" start="2025-05-18T19:13:42.201323" elapsed="0.026578"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>css:#years</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-05-18T19:13:42.228022" elapsed="0.016951"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-05-18T19:13:42.245187" level="INFO">Clicking element 'css:#years'.</msg>
+<arg>css:#years</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-05-18T19:13:42.245088" elapsed="0.039246"/>
+</kw>
+<kw name="Select From List By Value" owner="SeleniumLibrary">
+<msg time="2025-05-18T19:13:42.284569" level="INFO">Selecting options from selection list 'css:#years' by value 1962.</msg>
+<arg>css:#years</arg>
+<arg>${years}</arg>
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<status status="PASS" start="2025-05-18T19:13:42.284438" elapsed="0.026635"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-05-18T19:13:42.311422" level="INFO">Clicking element 'xpath://b[contains(text(), "Enter Account Information")]'.</msg>
+<arg>xpath://b[contains(text(), "Enter Account Information")]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-05-18T19:13:42.311259" elapsed="0.071803"/>
+</kw>
+<arg>${date_of_birth}</arg>
+<status status="PASS" start="2025-05-18T19:13:41.981178" elapsed="0.401978"/>
+</kw>
+<status status="PASS" start="2025-05-18T19:13:41.980873" elapsed="0.402304"/>
+</branch>
+<status status="PASS" start="2025-05-18T19:13:41.980864" elapsed="0.402340"/>
 </if>
 <arg>firstName=TS</arg>
 <arg>gender=Mrs</arg>
 <arg>password=1234567</arg>
-<status status="FAIL" start="2025-05-09T14:45:46.778760" elapsed="0.007877">NoSuchWindowException: Message: no such window: target window already closed
-from unknown error: web view not found
-  (Session info: chrome=136.0.7103.93)
-Stacktrace:
-0   chromedriver                        0x0000000100c143bc cxxbridge1$str$ptr + 2829900
-1   chromedriver                        0x0000000100c0c684 cxxbridge1$str$ptr + 2797844
-2   chromedriver                        0x0000000100749fbc cxxbridge1$string$len + 90140
-3   chromedriver                        0x0000000100724798 chromedriver + 133016
-4   chromedriver                        0x00000001007b9048 cxxbridge1$string$len + 544936
-5   chromedriver                        0x00000001007d1b50 cxxbridge1$string$len + 646064
-6   chromedriver                        0x00000001007853f8 cxxbridge1$string$len + 332888
-7   chromedriver                        0x0000000100bd87e0 cxxbridge1$str$ptr + 2585200
-8   chromedriver                        0x0000000100bdbab0 cxxbridge1$str$ptr + 2598208
-9   chromedriver                        0x0000000100bb9db4 cxxbridge1$str$ptr + 2459716
-10  chromedriver                        0x0000000100bdc328 cxxbridge1$str$ptr + 2600376
-11  chromedriver                        0x0000000100bab640 cxxbridge1$str$ptr + 2400464
-12  chromedriver                        0x0000000100bfc28c cxxbridge1$str$ptr + 2731292
-13  chromedriver                        0x0000000100bfc418 cxxbridge1$str$ptr + 2731688
-14  chromedriver                        0x0000000100c0c2d0 cxxbridge1$str$ptr + 2796896
-15  libsystem_pthread.dylib             0x0000000199b21c0c _pthread_start + 136
-16  libsystem_pthread.dylib             0x0000000199b1cb80 thread_start + 8
-</status>
+<arg>date_of_birth=${date_of_birth}</arg>
+<status status="PASS" start="2025-05-18T19:13:37.068933" elapsed="5.314298"/>
 </kw>
-<status status="FAIL" start="2025-05-09T14:45:33.402628" elapsed="13.384180">NoSuchWindowException: Message: no such window: target window already closed
-from unknown error: web view not found
-  (Session info: chrome=136.0.7103.93)
-Stacktrace:
-0   chromedriver                        0x0000000100c143bc cxxbridge1$str$ptr + 2829900
-1   chromedriver                        0x0000000100c0c684 cxxbridge1$str$ptr + 2797844
-2   chromedriver                        0x0000000100749fbc cxxbridge1$string$len + 90140
-3   chromedriver                        0x0000000100724798 chromedriver + 133016
-4   chromedriver                        0x00000001007b9048 cxxbridge1$string$len + 544936
-5   chromedriver                        0x00000001007d1b50 cxxbridge1$string$len + 646064
-6   chromedriver                        0x00000001007853f8 cxxbridge1$string$len + 332888
-7   chromedriver                        0x0000000100bd87e0 cxxbridge1$str$ptr + 2585200
-8   chromedriver                        0x0000000100bdbab0 cxxbridge1$str$ptr + 2598208
-9   chromedriver                        0x0000000100bb9db4 cxxbridge1$str$ptr + 2459716
-10  chromedriver                        0x0000000100bdc328 cxxbridge1$str$ptr + 2600376
-11  chromedriver                        0x0000000100bab640 cxxbridge1$str$ptr + 2400464
-12  chromedriver                        0x0000000100bfc28c cxxbridge1$str$ptr + 2731292
-13  chromedriver                        0x0000000100bfc418 cxxbridge1$str$ptr + 2731688
-14  chromedriver                        0x0000000100c0c2d0 cxxbridge1$str$ptr + 2796896
-15  libsystem_pthread.dylib             0x0000000199b21c0c _pthread_start + 136
-16  libsystem_pthread.dylib             0x0000000199b1cb80 thread_start + 8
-</status>
+<status status="PASS" start="2025-05-18T19:13:34.619161" elapsed="7.764333"/>
 </test>
-<status status="FAIL" start="2025-05-09T14:45:33.304125" elapsed="13.483911"/>
+<status status="PASS" start="2025-05-18T19:13:34.521104" elapsed="7.862767"/>
 </suite>
 <statistics>
 <total>
-<stat pass="0" fail="1" skip="0">All Tests</stat>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat pass="0" fail="1" skip="0" id="s1" name="1.Register User">1.Register User</stat>
+<stat pass="1" fail="0" skip="0" id="s1" name="1.Register User">1.Register User</stat>
 </suite>
 </statistics>
 <errors>
-<msg time="2025-05-09T14:45:46.781127" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: Message: no such window: target window already closed
-from unknown error: web view not found
-  (Session info: chrome=136.0.7103.93)
-Stacktrace:
-0   chromedriver                        0x0000000100c143bc cxxbridge1$str$ptr + 2829900
-1   chromedriver                        0x0000000100c0c684 cxxbridge1$str$ptr + 2797844
-2   chromedriver                        0x0000000100749fbc cxxbridge1$string$len + 90140
-3   chromedriver                        0x0000000100724798 chromedriver + 133016
-4   chromedriver                        0x00000001007b9048 cxxbridge1$string$len + 544936
-5   chromedriver                        0x00000001007d1b50 cxxbridge1$string$len + 646064
-6   chromedriver                        0x00000001007853f8 cxxbridge1$string$len + 332888
-7   chromedriver                        0x0000000100bd87e0 cxxbridge1$str$ptr + 2585200
-8   chromedriver                        0x0000000100bdbab0 cxxbridge1$str$ptr + 2598208
-9   chromedriver                        0x0000000100bb9db4 cxxbridge1$str$ptr + 2459716
-10  chromedriver                        0x0000000100bdc328 cxxbridge1$str$ptr + 2600376
-11  chromedriver                        0x0000000100bab640 cxxbridge1$str$ptr + 2400464
-12  chromedriver                        0x0000000100bfc28c cxxbridge1$str$ptr + 2731292
-13  chromedriver                        0x0000000100bfc418 cxxbridge1$str$ptr + 2731688
-14  chromedriver                        0x0000000100c0c2d0 cxxbridge1$str$ptr + 2796896
-15  libsystem_pthread.dylib             0x0000000199b21c0c _pthread_start + 136
-16  libsystem_pthread.dylib             0x0000000199b1cb80 thread_start + 8
-</msg>
 </errors>
 </robot>

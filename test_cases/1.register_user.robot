@@ -1,7 +1,7 @@
 *** Settings ***
 Library           SeleniumLibrary
 Library           String
-# Library           ../custom_library/custom_keywords.py
+Library           ../custom_library/custom_keywords.py
 
 Variables         ../variables/setting.py
 Resource          ../keywords/login_keyword.robot
@@ -13,5 +13,7 @@ Resource          ../keywords/register_keyword.robot
 *** Test Cases ***
 Register User
     Open Automation Exercise Website
-    Register New User          firstName=TS    gender=Mrs    password=1234567
-    
+    ${days}    ${months}    ${years}=    Generate Random Date
+    ${date_of_birth}=    Set Variable    ${days}-${months}-${years}
+    Register New User          firstName=TS    gender=Mrs    password=1234567    date_of_birth=${date_of_birth}
+    ##TODO Sign up for our newsletter! checkbox
