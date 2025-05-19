@@ -15,5 +15,5 @@ Register User
     Open Automation Exercise Website
     ${days}    ${months}    ${years}=    Generate Random Date
     ${date_of_birth}=    Set Variable    ${days}-${months}-${years}
-    Register New User          firstName=TS    gender=Mrs    password=1234567    date_of_birth=${date_of_birth}
-    ##TODO Sign up for our newsletter! checkbox
+    Register New User          firstName=TS    gender=Mrs    password=1234567    date_of_birth=${date_of_birth}    newsletter=True    offers=False
+    ##TODO  Address Information
